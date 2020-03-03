@@ -3,10 +3,9 @@
 
     <test name = "My Test">
 
-        <parameter name = "input" value="Ruby"/>
-
         <classes>
-            <class name = "GoogleSearch" />
+            <class name = "JavaSearch" />
+            <class name = "RubySearch" />
         </classes>
     </test>
 </suite>
