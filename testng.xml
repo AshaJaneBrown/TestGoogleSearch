@@ -2,6 +2,9 @@
 <suite name = "My Suite">
 
     <test name = "My Test">
+
+        <parameter name = "input" value="Ruby"/>
+
         <classes>
             <class name = "JavaSearch" />
         </classes>

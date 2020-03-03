@@ -14,10 +14,11 @@ public class JavaSearch {
     }
 
     @Test
-    public void validatePage() {
+    @Parameters("input")
+    public void validatePage(String input) {
         driver.get("http://google.com.ua/");
         WebElement inputField = driver.findElement(By.name("q"));
-        inputField.sendKeys("Java");
+        inputField.sendKeys(input);
         inputField.submit();
         String pageTitle = "Java - Пошук Google";
         Assert.assertEquals(pageTitle, driver.getTitle());
