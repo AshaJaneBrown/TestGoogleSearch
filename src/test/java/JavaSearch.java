@@ -1,17 +1,15 @@
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-public class JavaSearch {
+public class JavaSearch extends BaseSearch {
 
     @Test
-    public void validatePage() {
-        Browser browser = new Browser();
-        browser.runSearch();
-        browser.getSearchField().sendKeys("Java");
-        browser.getSearchField().submit();
+    public void searchJavaTest() {
+
+        getSearchField().sendKeys("Java");
+        getSearchField().submit();
         String pageTitle = "Java - Пошук Google";
-        Assert.assertEquals(pageTitle, browser.getDriver().getTitle());
-        browser.closeBrowser();
+        Assert.assertEquals(pageTitle, getDriver().getTitle());
     }
 }
 

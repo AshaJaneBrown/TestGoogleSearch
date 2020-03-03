@@ -2,8 +2,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
-public class Browser {
+public class BaseSearch {
 
     private WebDriver driver;
     private WebElement searchField;
@@ -15,6 +17,18 @@ public class Browser {
     public WebElement getSearchField() {
         return searchField;
     }
+
+
+    @BeforeClass
+    public void start() {
+        runSearch();
+    }
+
+    @AfterClass
+    public void end() {
+        closeBrowser();
+    }
+
 
     public void runBrowser(){
         driver = createDriver();
@@ -34,4 +48,5 @@ public class Browser {
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//src/main/resources/chromedriver.exe");
         return new ChromeDriver();
     }
+
 }
