@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-public class JavaSearch {
+public class GoogleSearch {
     private WebDriver driver;
 
     @BeforeClass
@@ -20,7 +20,7 @@ public class JavaSearch {
         WebElement inputField = driver.findElement(By.name("q"));
         inputField.sendKeys(input);
         inputField.submit();
-        String pageTitle = "Java - Пошук Google";
+        String pageTitle = input + " - Пошук Google";
         Assert.assertEquals(pageTitle, driver.getTitle());
     }
     @AfterClass

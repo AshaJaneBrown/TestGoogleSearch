@@ -6,7 +6,7 @@
         <parameter name = "input" value="Ruby"/>
 
         <classes>
-            <class name = "JavaSearch" />
+            <class name = "GoogleSearch" />
         </classes>
     </test>
 </suite>
