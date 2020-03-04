@@ -2,43 +2,24 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 public class BaseSearch {
 
-    private WebDriver driver;
-    private WebElement searchField;
-    String stringResult;
+    WebDriver driver;
+    By searchField = By.name("q");
 
-    public WebDriver getDriver() {
-        return driver;
-    }
-
-    public WebElement getSearchField() {
-        return searchField;
-    }
-
-
-    @BeforeClass
-    public void start() {
-        runSearch();
-    }
-
-    @AfterClass
-    public void end() {
-        closeBrowser();
-    }
-
-
-    public void runBrowser(){
+    public void openBrowser() {
         driver = createDriver();
         driver.get("http://google.com.ua/");
-    }
 
-    public void runSearch() {
-        this.runBrowser();
-        searchField = driver.findElement(By.name("q"));
+    }
+    public void typeWord(String word) {
+        driver.findElement(searchField).sendKeys(word);
+        driver.findElement(searchField).submit();
     }
 
     public void closeBrowser(){
@@ -50,4 +31,22 @@ public class BaseSearch {
         return new ChromeDriver();
     }
 
+    public boolean atPage(String pageTitle){
+        if (driver.getTitle().equals(pageTitle))
+            return true;
+        else
+            return false;
+
+    }
+
+
+    @BeforeClass
+    public void start() {
+        openBrowser();
+    }
+
+    @AfterClass
+    public void end() {
+        closeBrowser();
+    }
 }

@@ -7,20 +7,26 @@ import java.util.List;
 
 public class RubySearch extends BaseSearch {
 
-    @Test
-    public void searchRubyTest() {
+    By element = By.xpath("//h3[@class='LC20lb DKV0Md']");
+    List<WebElement> results;
 
-        getSearchField().sendKeys("Ruby");
-        getSearchField().submit();
-        String pageTitle = "Ruby - Пошук Google";
-        Assert.assertEquals(pageTitle, getDriver().getTitle());
-        List<WebElement> searchResults = getDriver().findElements(By.xpath("//h3[@class='LC20lb DKV0Md']"));
-        for (int i = 0; i < searchResults.size(); i++) {
-            stringResult = searchResults.get(i).getText();
-//            System.out.println(stringResult);
+    public List<WebElement> findResults(){
+        return driver.findElements(element);
+    }
+
+    @Test
+    public void checkResults() {
+        typeWord("Ruby");
+        Assert.assertTrue(atPage("Ruby - Пошук Google"));
+        results = findResults();
+
+        for (int i = 0; i < results.size(); i++) {
+            String stringResult = results.get(i).getText();
             Assert.assertTrue(stringResult.contains("Ruby"));
         }
+
     }
 }
+
 
 

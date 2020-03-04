@@ -7,21 +7,25 @@ import java.sql.SQLOutput;
 import java.util.List;
 
 public class JavaSearch extends BaseSearch {
-    String stringResult;
+
+    By element = By.xpath("//h3[@class='LC20lb DKV0Md']");
+    List<WebElement> results;
+
+    public List<WebElement> findResults(){
+        return driver.findElements(element);
+    }
 
     @Test
-    public void searchJavaTest() {
+    public void checkResults() {
+        typeWord("Java");
+        Assert.assertTrue(atPage("Java - Пошук Google"));
+        results = findResults();
 
-        getSearchField().sendKeys("Java");
-        getSearchField().submit();
-        String pageTitle = "Java - Пошук Google";
-        Assert.assertEquals(pageTitle, getDriver().getTitle());
-        List<WebElement> searchResults = getDriver().findElements(By.xpath("//h3[@class='LC20lb DKV0Md']"));
-        for (int i = 0; i < searchResults.size(); i++) {
-            stringResult = searchResults.get(i).getText();
-//            System.out.println(stringResult);
+        for (int i = 0; i < results.size(); i++) {
+            String stringResult = results.get(i).getText();
             Assert.assertTrue(stringResult.contains("Java") || stringResult.contains("Джава"));
         }
+
     }
 }
 

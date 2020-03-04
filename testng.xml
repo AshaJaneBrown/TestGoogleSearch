@@ -1,11 +1,11 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <suite name = "My Suite">
 
-    <test name = "My Test">
+<test name = "My Test">
 
-        <classes>
-            <class name = "JavaSearch" />
-            <class name = "RubySearch" />
-        </classes>
-    </test>
+    <classes>
+        <class name = "JavaSearch" />
+        <class name = "RubySearch" />
+    </classes>
+</test>
 </suite>
