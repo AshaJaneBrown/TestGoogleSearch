@@ -9,6 +9,7 @@ public class BaseSearch {
 
     private WebDriver driver;
     private WebElement searchField;
+    String stringResult;
 
     public WebDriver getDriver() {
         return driver;
