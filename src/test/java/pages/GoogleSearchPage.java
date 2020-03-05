@@ -7,7 +7,6 @@ public class GoogleSearchPage {
 
     WebDriver driver;
     By searchField = By.name("q");
-    public static String address = "http://google.com.ua/";
 
     public GoogleSearchPage(WebDriver driver) {
         this.driver = driver;

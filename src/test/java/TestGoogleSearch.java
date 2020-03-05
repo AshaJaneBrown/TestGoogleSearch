@@ -1,16 +1,9 @@
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.GoogleSearchResults;
 
 public class TestGoogleSearch extends BaseTest{
     String request;
-
-    @BeforeClass
-    public void start(){
-        openGoogleSearch();
-    }
 
     @Test
     public void testSearch() {
@@ -30,10 +23,5 @@ public class TestGoogleSearch extends BaseTest{
             String item = result.foundItems.get(i).getText();
             Assert.assertTrue(item.contains(request));
         }
-    }
-
-    @AfterClass
-    public void finish(){
-        closeBrowser();
     }
 }
