@@ -4,8 +4,7 @@
 <test name = "My Test">
 
     <classes>
-        <class name = "JavaSearchResults" />
-        <class name = "RubySearchResults" />
+        <class name = "GoogleSearchResults" />
     </classes>
 </test>
 </suite>
